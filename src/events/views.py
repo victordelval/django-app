@@ -1,13 +1,26 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+from django.views.generic import ListView, View
 
 
-def EventListView(request):
-    return HttpResponse("This view is the 'Event List'")
+class EventListView(ListView):
+    template_name = 'events/event_list.html'
+
+    def get_queryset(self):
+        return None
 
 
-def EventFormView(request):
-    return HttpResponse("This view is the 'Event Form'")
+class EventFormView(View):
+    template_name = 'events/event_form.html'
+
+    def get(self, request, *args, **kwargs):
+        template = self.template_name
+        return render(request, template, {})
 
 
-def HashtagFormView(request):
-    return HttpResponse("This view is the 'Hashtag Form'")
+class TagFormView(View):
+    template_name = 'events/tag_form.html'
+
+    def get(self, request, *args, **kwargs):
+        template = self.template_name
+        return render(request, template, {})

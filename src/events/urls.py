@@ -7,7 +7,7 @@ from . import views
 app_name = 'events'
 
 urlpatterns = [
-    path('hashtag', views.HashtagFormView, name='hashtag-form-view'),
-    path('event', views.EventFormView, name='event-form-view'),
-    path('', views.EventListView, name='event-list-view'),
+    path('tag', views.TagFormView.as_view(), name='tag-form-view'),
+    path('event', views.EventFormView.as_view(), name='event-form-view'),
+    path('', views.EventListView.as_view(), name='event-list-view'),
 ]
