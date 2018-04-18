@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.urls import reverse
 
 
 class GetRequestsViewsTests(TestCase):
@@ -9,13 +10,13 @@ class GetRequestsViewsTests(TestCase):
     """
 
     def test_get_event_list_view(self):
-        response = self.client.get('/')
+        response = self.client.get(reverse('events:event-list-view'))
         self.assertEqual(response.status_code, 200)
 
     def test_get_event_form_view(self):
-        response = self.client.get('/events')
+        response = self.client.get(reverse('events:event-form-view'))
         self.assertEqual(response.status_code, 200)
 
     def test_get_hashtag_form_view(self):
-        response = self.client.get('hashtag')
+        response = self.client.get(reverse('events:hashtag-form-view'))
         self.assertEqual(response.status_code, 200)

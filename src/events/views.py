@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def EventListView(request):
+    return HttpResponse("This view is the 'Event List'")
+
+
+def EventFormView(request):
+    return HttpResponse("This view is the 'Event Form'")
+
+
+def HashtagFormView(request):
+    return HttpResponse("This view is the 'Hashtag Form'")
