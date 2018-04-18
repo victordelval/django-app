@@ -3,7 +3,7 @@
 - [Short Description](#short-description)
 - [Project Dependencies](#project-dependencies)
 - [Project Structure](#folder-structure)
-- [Available Scripts](#available-scripts)
+- [Execution](#execution)
 
 
 ## Short Description
@@ -16,8 +16,12 @@ The project dependencies are listed in the requirements.txt file.
 
 ```
 Django==2.0.4
+flake8==3.5.0
+mccabe==0.6.1
+pep8==1.7.1
+pycodestyle==2.3.1
+pyflakes==1.6.0
 pytz==2018.4
-
 ```
 
 ### Notes
@@ -25,10 +29,16 @@ pytz==2018.4
 Python version used is 3.6.5.
 
 To create the virtual environment for the project, when this version of Python it is not the default in the system but it is installed, you can do:
-* virtualenv -p /usr/bin/python3.6 env
+* `virtualenv -p /usr/bin/python3.6 env`
+
+Once the virtualenv is activated you can install the dependencies:
+* `pip install -r requirements.txt`
+
+
 
 ### Testing tools
 
+**unittest** Python standard library module used by Django’s unit tests. This module defines tests using a class-based approach. Django offers `django.test.TestCase`, which is a subclass of `unittest.TestCase` that runs each test inside a transaction to provide isolation.
 
 
 
@@ -52,20 +62,27 @@ requirements.txt
 
 
 
-## Available Scripts
+## Execution
 
-In the project directory, you can run:
+In the django project directory (src folder), you can run:
 
-### `npm start`
+### `python manage.py migrate`
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run model and data migrations into the sqlite3 database.
 
-The page will reload if you make edits. You will also see any lint errors in the console.
 
-### `npm test`
+### `python manage.py runserver`
 
-Launches the test runner in the interactive watch mode.
+Runs the app in the development mode. Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
-Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.<br>
-Run `npm test -- --coverage` to include a coverage report.
+The page will reload if you make edits. You will also see any errors in the console.
+
+
+### `python manage.py test`
+
+Launches all tests in the project.
+
+To include a coverage report:
+* `coverage run --source='.' manage.py test plans`
+* `coverage report`
 
