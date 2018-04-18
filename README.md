@@ -1,8 +1,3 @@
-
-
-
-
-
 ## Table of Contents
 
 - [Short Description](#short-description)
@@ -13,7 +8,7 @@
 
 ## Short Description
 
-
+Simple web application with Django (SSR and REST API) applying good development practices and TDD.
 
 ## Project Dependencies
 
