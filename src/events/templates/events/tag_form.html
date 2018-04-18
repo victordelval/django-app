@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block custom_css %}
+<link href="{% static 'events/events.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+{% include 'events/partials/nav_event_form.html' %}
+{% include 'events/partials/nav_event_list.html' %}
+
+<h3 class="page-title">Add a new Tag</h3>
+
+<form method="post"
+      action="{% url 'events:tag-form-view' %}"
+      class="form">
+
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="username">Username</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="text" class="form-control" id="username" placeholder="Username" required>
+          <div class="invalid-feedback" style="width: 100%;">
+            Your username is required.
+          </div>
+        </div>
+      </div>
+      <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+</form>
+
+{% endblock %}

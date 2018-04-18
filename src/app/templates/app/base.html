@@ -1,0 +1,39 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Events app with Django using TDD">
+    <meta name="author" content="Víctor del Val">
+    <link rel="icon" href="{% static 'app/favicon.ico' %}">
+    <title>Events app - Django TDD</title>
+    <!-- Bootstrap core CSS -->
+    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %}
+    <!-- Custom styles -->
+    <link href="{% static 'app/app.css' %}" rel="stylesheet">
+    {% block custom_css %}{% endblock %}
+</head>
+
+<body>
+    <main role="main" class="container">
+        {% block title %}
+        <h1 class="mt-5 text-center">EventsApp</h1>
+        <hr style="padding-bottom: 2em;">
+        {% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <span class="text-muted">
+                EventsApp - Django and TDD | <a href="http://victordelval.com" target="_blank">Víctor del Val (April 2018)</a>
+            </span>
+        </div>
+    </footer>
+</body>
+
+</html>
